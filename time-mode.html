@@ -138,18 +138,16 @@ timerElement.addEventListener("mousemove", function(e) {
 
   if (userAnswer === correctAnswer) {
     result.textContent = "Correct!";
+    questionCounter++;
     generateQuestion();
   } else {
     result.textContent = "Wrong! Try again.";
   }
 
-  questionCounter++;
   if (questionCounter === 20) {
-    endGame();
-  } else {
-    generateQuestion();
-  }  
+    endGame(); 
  }
+}
 
 function endGame() {
   alert("Game over! You answered 20 questions.");
