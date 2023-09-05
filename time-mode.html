@@ -84,39 +84,7 @@
       elapsedTimeString = timeString;
   }
 
-  // Variables to track mouse position and element position
-var mousePosition;
-var offset = [0,0];
-var isMouseDown = false;
-
-// Get the timer element
-var timerElement = document.getElementById("timer");
-
-// Add event listeners for mouse events
-timerElement.addEventListener("mousedown", function(e) {
-  isMouseDown = true;
-  // Get the mouse position when the mouse button is pressed down
-  mousePosition = [e.clientX, e.clientY];
   
-  // Get the offset between the mouse position and the timer element position
-  var rect = timerElement.getBoundingClientRect();
-  offset = [mousePosition[0] - rect.left, mousePosition[1] - rect.top];
-});
-
-timerElement.addEventListener("mouseup", function() {
-  isMouseDown = false;
-});
-
-timerElement.addEventListener("mousemove", function(e) {
-  if (isMouseDown) {
-    // Calculate the new position of the element based on the mouse movement
-    var newPosition = [e.clientX - offset[0], e.clientY - offset[1]];
-    
-    // Set the new position of the element
-    timerElement.style.left = newPosition[0] + "px";
-    timerElement.style.top = newPosition[1] + "px";
-  }
-});
 
       
 
