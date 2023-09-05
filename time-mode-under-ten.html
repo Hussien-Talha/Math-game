@@ -24,9 +24,11 @@
   background-color: #000; /* Change background color on hover */
   color: #fff; /* Change text color on hover */
 }
-#timer {
+.timer {
   position: fixed;
   top: 0;
+  padding: 50px 50px;
+  font: Open Sans bold;
   font-size: 50px;
   font-weight: bold; /* Add font-weight property */
   color: rgb(0, 0, 0);
@@ -84,43 +86,8 @@
       elapsedTimeString = timeString;
   }
 
-  // Variables to track mouse position and element position
-var mousePosition;
-var offset = [0,0];
-var isMouseDown = false;
-
-// Get the timer element
-var timerElement = document.getElementById("timer");
-
-// Add event listeners for mouse events
-timerElement.addEventListener("mousedown", function(e) {
-  isMouseDown = true;
-  // Get the mouse position when the mouse button is pressed down
-  mousePosition = [e.clientX, e.clientY];
-  
-  // Get the offset between the mouse position and the timer element position
-  var rect = timerElement.getBoundingClientRect();
-  offset = [mousePosition[0] - rect.left, mousePosition[1] - rect.top];
-});
-
-timerElement.addEventListener("mouseup", function() {
-  isMouseDown = false;
-});
-
-timerElement.addEventListener("mousemove", function(e) {
-  if (isMouseDown) {
-    // Calculate the new position of the element based on the mouse movement
-    var newPosition = [e.clientX - offset[0], e.clientY - offset[1]];
-    
-    // Set the new position of the element
-    timerElement.style.left = newPosition[0] + "px";
-    timerElement.style.top = newPosition[1] + "px";
-  }
-});
-
-      
-
-    function generateQuestion() {
+   
+function generateQuestion() {
       num1 = getRandomNumber(); // Assign value to num1
       num2 = getRandomNumber();
       var operator = getRandomOperator();
