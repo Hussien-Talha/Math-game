@@ -43,7 +43,7 @@
         <label for="answer">Your answer:</label>
         <input type="number" id="answer" onkeydown="checkEnterKey(event)">
         <button class="round-button" onclick="generateQuestion()">Change question</button>
-        <button class="round-button" id="EndGame">End Game</button>
+        <button class="round-button" id="endGame">End Game</button>
         <p id="result"></p>
       </div>      
 
@@ -59,7 +59,7 @@
     setInterval(updateTimer, 1000);
     updateTimer();
 
-    document.getElementById("EndGame").addEventListener("click", function() {
+    document.getElementById("endGame").addEventListener("click", function() {
       window.location.href = "Game-ended.html";
     });
 
@@ -121,9 +121,9 @@
 }
 
 function endGame() {
-  alert("Game over! You answered 20 questions in " + elapsedTimeString);
+  localStorage.setItem('gameOverMessage', "Game over! You answered 20 questions in " + elapsedTimeString);
   // Redirect the player to another page
-  window.location.href = "Game-ended.html";
+  window.location.href = "Game-ended-time.html";
 }
 
     function checkEnterKey(event) {

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Time Mode</title>
+  <title>Hardcore Mode</title>
   <style>
     .container {
       display: flex;
@@ -27,8 +27,6 @@
 .timer {
   position: fixed;
   top: 0;
-  padding: 50px 50px;
-  font: Open Sans bold;
   font-size: 50px;
   font-weight: bold; /* Add font-weight property */
   color: rgb(0, 0, 0);
@@ -39,8 +37,10 @@
 </head>
 <body>
     <div class="container">
+        <div id="wrongCounter"></div>
+        <p></p>
         <div id="timer"></div>
-        <h1>Time mode</h1>
+        <h1>Hardcore mode</h1>
         <p id="question"></p>
         <label for="answer">Your answer:</label>
         <input type="number" id="answer" onkeydown="checkEnterKey(event)">
@@ -57,6 +57,8 @@
     var question; // Declare question at the global scope
     var startTime = new Date();
     var questionCounter = 0;
+    var wrongAnswerCounter = 0;
+    var elapsedTimeString;
     // Call the updateTimer function every second
     setInterval(updateTimer, 1000);
     updateTimer();
@@ -86,8 +88,11 @@
       elapsedTimeString = timeString;
   }
 
-   
-function generateQuestion() {
+  
+
+      
+
+    function generateQuestion() {
       num1 = getRandomNumber(); // Assign value to num1
       num2 = getRandomNumber();
       var operator = getRandomOperator();
@@ -112,34 +117,30 @@ function generateQuestion() {
     generateQuestion();
   } else {
     result.textContent = "Wrong! Try again.";
+    wrongAnswerCounter++;
+    document.getElementById('wrongCounter').textContent = "Wrong answers: " + wrongAnswerCounter;
+    console.log('Wrong Answer Counter: ' + wrongAnswerCounter);
+    if (wrongAnswerCounter == 3) {
+        endGame()
+      }
   }
-
-  if (questionCounter === 20) {
-    endGame(); 
- }
 }
 
 function endGame() {
-  localStorage.setItem('gameOverMessage', "Game over! You answered 20 questions in " + elapsedTimeString);
-  // Redirect the player to another page
-  window.location.href = "Game-ended-time.html";
-}
-
-    function checkEnterKey(event) {
-      if (event.key === "Enter") {
-        checkAnswer();
-        document.getElementById('answer').value = ""; // Clear the input value
-        if (userAnswer === correctAnswer) {
-         result.textContent = "Correct!";
-         generateQuestion();
-         } else {
-         result.textContent = "Wrong! Try again.";
-        }
+    localStorage.setItem('gameOverMessage', "Game over! You answered " + questionCounter + " questions and got " + wrongAnswerCounter + " wrong answers in " + elapsedTimeString);
+    // Redirect the player to another page
+    window.location.href = "Game-ended-time.html";
   }
-}
+
+  function checkEnterKey(event) {
+    if (event.key === "Enter") {
+      checkAnswer();
+      document.getElementById('answer').value = ""; // Clear the input value
+    }
+  }
 
     function getRandomNumber() {
-      return Math.floor(Math.random() * 10) + 1;
+      return Math.floor(Math.random() * 20) + 1;
     }
 
     function getRandomOperator() {
