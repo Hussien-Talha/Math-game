@@ -121,7 +121,7 @@
 }
 
 function endGame() {
-  localStorage.setItem('gameOverMessage', "Game over! You answered 20 questions in " + elapsedTimeString);
+  sessionStorage.setItem('TimeScore', "You answered 20 questions in " + elapsedTimeString);
   // Redirect the player to another page
   window.location.href = "Game-ended-time.html";
 }

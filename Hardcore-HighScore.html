@@ -10,25 +10,10 @@
           align-items: center;
           height: 100vh;
         }
-        .round-button {
-  border: 2px solid #000; /* Set the border width and color */
-  border-radius: 50%; /* Make the button round */
-  padding: 10px 20px; /* Add padding to increase button size */
-  background-color: transparent; /* Set background color to transparent */
-  color: #000; /* Set text color */
-  font-size: 16px; /* Set font size */
-}
-
-.round-button:hover {
-  background-color: #000; /* Change background color on hover */
-  color: #fff; /* Change text color on hover */
-}
-
-.round-button1 {
+        .round-button1 {
   border: 2px solid #000; /* Set the border width and color */
   border-radius: 50%; /* Make the button round */
   margin-top: 5px;
-  margin-bottom: 15px;
   padding: 10px 20px; /* Add padding to increase button size */
   background-color: transparent; /* Set background color to transparent */
   color: #000; /* Set text color */
@@ -39,32 +24,44 @@
   background-color: #000; /* Change background color on hover */
   color: #fff; /* Change text color on hover */
 }
+
+.round-button2 {
+  border: 2px solid #000; /* Set the border width and color */
+  border-radius: 50%; /* Make the button round */
+  margin-top: 15px;
+  padding: 10px 20px; /* Add padding to increase button size */
+  background-color: transparent; /* Set background color to transparent */
+  color: #000; /* Set text color */
+  font-size: 16px; /* Set font size */
+}
+
+.round-button2:hover {
+  background-color: #000; /* Change background color on hover */
+  color: #fff; /* Change text color on hover */
+}
+
+
     </style>
 </head>
 <body>     
     <div class="container">
-        <h1 id="TimeScore"></h1>
-        <button class="round-button1" id= Save> Save score</button>
-        <button class="round-button" id= Homepage>Return</button>
+        <h1 id="gameOverMessage"></h1>
+       <button class="round-button2" id= Return> Return</button>
     </div>    
 
     <script>
-        document.getElementById("Homepage").addEventListener("click", function() {
-          window.location.href = "index.html";
-        });
-
-        document.getElementById("Save").addEventListener("click", function() {
-          // Save the game over message to localStorage when the Save button is clicked
-          localStorage.setItem('TimeScore', document.getElementById('TimeScore').textContent);
-        });
-
-        window.onload = function() {
-            // Retrieve the game over message from localStorage
-            var TimeScore = sessionStorage.getItem('TimeScore');
+        document.getElementById("Return").addEventListener("click", function() {
+            window.location.href = "index.html";
+          });
+  
           
-            // Display the game over message
-            document.getElementById('TimeScore').textContent = TimeScore;
+          window.onload = function() {
+              // Retrieve the game over message from sessionStorage
+              var gameOverMessage = sessionStorage.getItem('gameOverMessage');
+            
+              // Display the game over message
+              document.getElementById('gameOverMessage').textContent = gameOverMessage;
           }
-    </script>
+      </script>
 </body>
 </html>

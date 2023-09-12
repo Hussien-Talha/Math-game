@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>    
+    <title>Math game</title>
+    <style>
+        .container {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+        }
+        .round-button1 {
+  border: 2px solid #000; /* Set the border width and color */
+  border-radius: 50%; /* Make the button round */
+  margin-top: 5px;
+  padding: 10px 20px; /* Add padding to increase button size */
+  background-color: transparent; /* Set background color to transparent */
+  color: #000; /* Set text color */
+  font-size: 16px; /* Set font size */
+}
+
+.round-button1:hover {
+  background-color: #000; /* Change background color on hover */
+  color: #fff; /* Change text color on hover */
+}
+
+.round-button2 {
+  border: 2px solid #000; /* Set the border width and color */
+  border-radius: 50%; /* Make the button round */
+  margin-top: 15px;
+  padding: 10px 20px; /* Add padding to increase button size */
+  background-color: transparent; /* Set background color to transparent */
+  color: #000; /* Set text color */
+  font-size: 16px; /* Set font size */
+}
+
+.round-button2:hover {
+  background-color: #000; /* Change background color on hover */
+  color: #fff; /* Change text color on hover */
+}
+
+
+    </style>
+</head>
+<body>     
+    <div class="container">
+        <h1>High Scores</h1>
+        <button class="round-button1" id= TimeScore> Time Score</button>
+        <button class="round-button2" id= HardcoreScore> Hardcore Score</button>
+       <button class="round-button2" id= Return> Return</button>
+    </div>    
+
+    <script>
+        document.getElementById("Return").addEventListener("click", function() {
+            window.location.href = "index.html";
+          });
+
+          document.getElementById("TimeScore").addEventListener("click", function() {
+            window.location.href = "Time-HighScore.html";
+          });
+
+          document.getElementById("HardcoreScore").addEventListener("click", function() {
+            window.location.href = "Hardcore-HighScore.html";
+          });
+  
+          document.getElementById("Save").addEventListener("click", function() {
+            // Save the game over message to localStorage when the Save button is clicked
+            localStorage.setItem('gameOverMessage', document.getElementById('gameOverMessage').textContent);
+          });
+  
+          window.onload = function() {
+              // Retrieve the game over message from sessionStorage
+              var gameOverMessage = sessionStorage.getItem('gameOverMessage');
+            
+              // Display the game over message
+              document.getElementById('gameOverMessage').textContent = gameOverMessage;
+            }
+
+            window.onload = function() {
+                // Retrieve the game over message from sessionStorage
+                var TimeScore = sessionStorage.getItem('TimeScore');
+              
+                // Display the game over message
+                document.getElementById('TimeScore').textContent = TimeScore;
+              }
+      </script>
+</body>
+</html>
