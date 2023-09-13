@@ -56,6 +56,7 @@
          document.getElementById("Save").addEventListener("click", function() { 
            // Save the game over message to localStorage when the Save button is clicked 
            localStorage.setItem('gameOverMessage', document.getElementById('gameOverMessage').textContent); 
+           window.location.href = "Saved-Successfully.html";
          });  
   
          window.onload = function() { 

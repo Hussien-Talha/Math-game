@@ -43,8 +43,7 @@
 </head>
 <body>     
     <div class="container">
-        <h1 id="TimeScore"></h1>
-        <button class="round-button1" id= Save> Save score</button>
+        <h1>Saved Successfully!</h1>
         <button class="round-button" id= Homepage>Return</button>
     </div>    
 
@@ -52,20 +51,6 @@
         document.getElementById("Homepage").addEventListener("click", function() {
           window.location.href = "index.html";
         });
-
-        document.getElementById("Save").addEventListener("click", function() {
-          // Save the game over message to localStorage when the Save button is clicked
-          localStorage.setItem('TimeScore', document.getElementById('TimeScore').textContent);
-          window.location.href = "Saved-Successfully.html";
-        });
-
-        window.onload = function() {
-            // Retrieve the game over message from localStorage
-            var TimeScore = sessionStorage.getItem('TimeScore');
-          
-            // Display the game over message
-            document.getElementById('TimeScore').textContent = TimeScore;
-          }
     </script>
 </body>
 </html>

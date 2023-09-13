@@ -28,6 +28,7 @@
 </head>
 <body>
   <div class="container">
+    <p id="timer"></p>
     <h1>Practice Mode</h1>
     <p id="question"></p>
     <label for="answer">Your answer:</label>
@@ -43,10 +44,43 @@
     var num2;
     var operatorIndex; // Declare operatorIndex at the global scope
     var question; // Declare question at the global scope
+    var startTime = new Date();
+    var questionCounter = 0;
+    var wrongAnswerCounter = 0;
+    // Call the updateTimer function every second
+    setInterval(updateTimer, 1000);
+    updateTimer();
 
-    document.getElementById("EndGame").addEventListener("click", function() {
-      window.location.href = "Game-ended.html";
-    });
+    document.getElementById("EndGame").addEventListener('click', function() {
+      endGame();
+    });    
+
+    function endGame() {
+      sessionStorage.setItem('PracticeMode', "You answered " + questionCounter + " questions correctly, and got " + wrongAnswerCounter + " wrong answers in " + elapsedTimeString);
+      // Redirect the player to another page
+      window.location.href = "Game-ended-practice.html";
+    }
+
+    function updateTimer() {
+      var timerElement = document.getElementById("timer");
+      var currentTime = new Date();
+      var elapsedTime = Math.floor((currentTime - startTime) / 1000); // Calculate elapsed time in seconds
+      var minutes = Math.floor(elapsedTime / 60); // Calculate minutes by dividing elapsed time by 60
+      var seconds = elapsedTime % 60; // Calculate seconds by taking the remainder of elapsed time divided by 60
+  
+      // Format the minutes and seconds with leading zeros if needed
+      var minutesString = minutes < 10 ? "0" + minutes : minutes;
+      var secondsString = seconds < 10 ? "0" + seconds : seconds;
+  
+      // Display the time as MM:SS format
+      var timeString = minutesString + ":" + secondsString;
+  
+      // Update the timer element with the current time
+      timerElement.textContent = timeString;
+
+      // Store the elapsed time string in a variable
+      elapsedTimeString = timeString;
+  }
 
     function generateQuestion() {
       num1 = getRandomNumber(); // Assign value to num1
@@ -70,8 +104,12 @@
   if (userAnswer === correctAnswer) {
     result.textContent = "Correct!";
     generateQuestion();
+    questionCounter++;
   } else {
     result.textContent = "Wrong! Try again.";
+    wrongAnswerCounter++;
+    document.getElementById('wrongCounter').textContent = "Wrong answers: " + wrongAnswerCounter;
+    console.log('Wrong Answer Counter: ' + wrongAnswerCounter);
   }
  }
 
