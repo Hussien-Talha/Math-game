@@ -55,8 +55,14 @@
 
         document.getElementById("Save").addEventListener("click", function() {
           // Save the game over message to localStorage when the Save button is clicked
-          localStorage.setItem('gameOverMessage', document.getElementById('gameOverMessage').textContent);
-        });
+
+// Check if the Cache API is available
+  if ('caches' in window) {
+    caches.open('my-cache').then((cache) => {
+     cache.put('gameOverMessage', new   Response(document.getElementById('gameOverMessage').textContent));
+  });
+}
+ 
 
         window.onload = function() {
             // Retrieve the game over message from localStorage
