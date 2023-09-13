@@ -57,7 +57,7 @@
           
           window.onload = function() {
               // Retrieve the game over message from sessionStorage
-              var gameOverMessage = sessionStorage.getItem('gameOverMessage');
+              var gameOverMessage =localStorage.getItem('gameOverMessage');
             
               // Display the game over message
               document.getElementById('gameOverMessage').textContent = gameOverMessage;
