@@ -64,7 +64,7 @@
     updateTimer();
 
     document.getElementById("endGame").addEventListener("click", function() {
-      sessionStorage.setItem('gameOverMessage', "Game over! You answered " + questionCounter + " questions and got " + wrongAnswerCounter + " wrong answers in " + elapsedTimeString);
+      sessionStorage.setItem('gameOverMessage', "You answered " + questionCounter + " questions and got " + wrongAnswerCounter + " wrong answers in " + elapsedTimeString);
       window.location.href = "Game-ended-hardcore.html";
     });
 
