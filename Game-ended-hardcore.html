@@ -41,31 +41,31 @@
 }
     </style>
 </head>
-<body>     
-    <div class="container">
-        <h1 id="gameOverMessage"></h1>
-        <button class="round-button1" id= Save> Save score</button>
-        <button class="round-button" id= Homepage>Return</button>
-    </div>    
+<body>      
+     <div class="container"> 
+         <h1 id="gameOverMessage"></h1> 
+         <button class="round-button1" id="Save"> Save score</button> 
+         <button class="round-button" id="Homepage">Return</button> 
+     </div>     
+  
+     <script> 
+         document.getElementById("Homepage").addEventListener("click", function() { 
+           window.location.href = "index.html"; 
+         }); 
+  
+         document.getElementById("Save").addEventListener("click", function() { 
+           // Save the game over message to localStorage when the Save button is clicked 
+           localStorage.setItem('gameOverMessage', document.getElementById('gameOverMessage').textContent); 
+         });  
+  
+         window.onload = function() { 
+             // Retrieve the game over message from localStorage 
+             var gameOverMessage = sessionStorage.getItem('gameOverMessage'); 
+            
+             // Display the game over message 
+             document.getElementById('gameOverMessage').textContent = gameOverMessage; 
+           } 
+     </script> 
+ </body>
 
-    <script>
-        document.getElementById("Homepage").addEventListener("click", function() {
-          window.location.href = "index.html";
-        });
-
-        document.getElementById("Save").addEventListener("click", function(){
-localStorage.setItem('gameOverMessage', document.getElementById(gameOverMessage').textcontent);
-}); 
-}
- 
-
-        window.onload = function() {
-            // Retrieve the game over message from localStorage
-            var gameOverMessage = sessionStorage.getItem('gameOverMessage');
-          
-            // Display the game over message
-            document.getElementById('gameOverMessage').textContent = gameOverMessage;
-          }
-    </script>
-</body>
 </html>
