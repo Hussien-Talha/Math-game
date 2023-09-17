@@ -33,16 +33,15 @@
             margin-bottom: 15px;
         }
         .section1 {
-            background-color: blue; /* Replace with your image 
+            background-color: white; /* Replace with your image 
 file */
-            color: white;
         }
         .section2 {
-            background-color: white; /* Replace with your image file */
+            background-color: blue; /* Replace with your image file */
+color: white;
         }
         .section3 {
-            background-color: blue; /* Replace with your image file */
-            color: white;
+            background-color: white; /* Replace with your image file */
         }
         footer{
         background-color: #666666; 
@@ -51,6 +50,53 @@ file */
             padding: 20px;
             font-size: 14px;
         }
+        .btn {
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-color: transparent;
+  border: 2px solid #e74c3c;
+  border-radius: 0.6em;
+  color: #e74c3c;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-self: center;
+      -ms-flex-item-align: center;
+          align-self: center;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1;
+  margin: 20px;
+  padding: 1.2em 2.8em;
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+}
+.btn:hover, .btn:focus {
+  color: #fff;
+  outline: 0;
+}
+.fourth {
+  border-color: #f1c40f;
+  color: #fff;
+  background-image: -webkit-linear-gradient(45deg, #f1c40f 50%, transparent 50%);
+  background-image: linear-gradient(45deg, #f1c40f 50%, transparent 50%);
+  background-position: 100%;
+  background-size: 400%;
+  -webkit-transition: background 300ms ease-in-out;
+  transition: background 300ms ease-in-out;
+}
+.fourth:hover {
+  background-position: 0;
+}
     </style>
 </head>
 <body>
@@ -68,6 +114,7 @@ file */
         <div class="section section2">
             <h2>My Work</h2>
             <p>This section can showcase your work or projects.</p>
+            <button class="btn fourth">Math Game</button>
         </div>
 
         <div class="section section3">
