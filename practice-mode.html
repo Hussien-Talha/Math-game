@@ -4,26 +4,58 @@
   <title>Practice mode</title>
   <style>
     .container {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-    .round-button {
-  border: 2px solid #000; /* Set the border width and color */
-  border-radius: 50%; /* Make the button round */
-  margin-top: 15px; /* Adjust 10px as per your desired space */
-  padding: 10px 20px; /* Add padding to increase button size */
-  background-color: transparent; /* Set background color to transparent */
-  color: #000; /* Set text color */
-  font-size: 16px; /* Set font size */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0e68c; /* Khaki background */
+}
+
+h1 {
+  color: #8b4513; /* SaddleBrown header text */
+}
+
+.round-button {
+  border: 2px solid #8b4513; /* SaddleBrown border color */
+  border-radius: 50%;
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #8b4513; /* SaddleBrown background */
+  color: #fff; /* White text color */
+  font-size: 16px;
 }
 
 .round-button:hover {
-  background-color: #000; /* Change background color on hover */
-  color: #fff; /* Change text color on hover */
+  background-color: #cd853f; /* Peru color on hover */
 }
+
+.timer {
+  position: fixed;
+  top: 0;
+  font-size: 50px;
+  font-weight: bold;
+  color: #8b4513; /* SaddleBrown timer color */
+  background: #fff; /* White timer background */
+  cursor: move;
+}
+
+#question {
+  color: #8b4513; /* SaddleBrown question color */
+}
+
+label {
+  color: #8b4513; /* SaddleBrown label color */
+}
+
+#answer {
+  border: 2px solid #8b4513; /* SaddleBrown border color */
+}
+
+#result {
+  color: #8b4513; /* SaddleBrown result color */
+}
+
   </style>
 </head>
 <body>
